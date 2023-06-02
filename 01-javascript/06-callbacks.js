@@ -1,12 +1,12 @@
 const fs = require('fs');   // file system
                             // Importar modulo fs
 
-// console.log('PRIMERO');
+console.log('PRIMERO');
 fs.readFile(
     './06-ejemplo.txt', // Nombre o path del archivo
     'utf-8',    // codificacion
     (errorLecturaPrimerArchivo, contenidoPrimerArchivo) => {
-        // console.log('SEGUNDO');
+        console.log('SEGUNDO');
         if (errorLecturaPrimerArchivo) {
             console.error(errorLecturaPrimerArchivo);
             throw new Error('Error leyendo el primer archivo');
@@ -39,4 +39,4 @@ fs.readFile(
         }
     }
 );
-// console.log('TERCERO');
+console.log('TERCERO');

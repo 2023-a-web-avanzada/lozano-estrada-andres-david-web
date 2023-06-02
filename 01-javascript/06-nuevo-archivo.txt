@@ -1,5 +1,4 @@
-Archivo 1: Este es mi archivo de ejemplo! :D
-// 01-javascript
+Archivo 1: Este es mi archivo de ejemplo! :D// 01-javascript
 // 01-variables.js
 
 // Mutables e Inmutables
