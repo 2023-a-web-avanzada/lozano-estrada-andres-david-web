@@ -1,0 +1,19 @@
+{
+  "name": "b1-examen",
+  "version": "1.0.0",
+  "description": "Exam of the first bimester of Advance Web Applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "exam"
+  ],
+  "author": "Andres David Lozano Estrada",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "inquirer": "^9.2.7"
+  },
+  "type": "module"
+}
