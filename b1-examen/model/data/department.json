@@ -1,18 +1,18 @@
 {
-    "departments": [
-        {
-            "id": 1,
-            "name": "Software design department",
-            "budget": 147513.25,
-            "active": true,
-            "location": "Third floor, main building"
-        },
-        {
-            "id": 2,
-            "name": "Financial department",
-            "budget": 58450.49,
-            "active": true,
-            "location": "Second floor, main building"
-        }
-    ]
+  "departments": [
+    {
+      "id": 1,
+      "name": "Software design department",
+      "budget": 147513.25,
+      "active": true,
+      "location": "Third floor, main building"
+    },
+    {
+      "id": 2,
+      "name": "Financial department",
+      "budget": 58450.49,
+      "active": true,
+      "location": "Second floor, main building"
+    }
+  ]
 }

@@ -8,6 +8,8 @@ import {
     updateEmployee
 } from "../model/entity/employee.js";
 import {
+    deleteDepartment,
+    getAllDepartments,
     getAllDepartmentsShortList
 } from "../model/entity/department.js";
 
@@ -288,7 +290,59 @@ async function processEmployeeMenuInput() {
 
 // =====  DEPARTMENT ENTITY MENU  =====
 
-async function processDepartmentMenuInput() {}  // *********************************************************************
+async function processDepartmentMenuInput() {
+    let userInput = undefined;
+
+    // employee entity menu loop
+    while (true) {
+        try {
+            console.log("================================");
+            console.log("===  DEPARTMENT ENTITY MENU  ===");
+            console.log("================================\n");
+            userInput = await getUserListSelection(departmentMenuOptions);
+            console.clear();
+
+            switch (userInput) {
+                case 1:
+                    console.log("==============================");
+                    console.log("===  ALL DEPARTMENTS LIST  ===");
+                    console.log("==============================\n");
+                    const allDepartmentsList = await getAllDepartments();
+                    console.log(allDepartmentsList);
+                    break;
+                case 4:
+                    console.log("==============================");
+                    console.log("===  DEPARTMENTS DELETION  ===");
+                    console.log("==============================\n");
+
+                    const departmentsDeletionShortList = await getAllDepartmentsShortList();
+                    departmentsDeletionShortList.push("0. Cancel deletion");
+                    const departmentDeletion = await getUserListSelection(
+                        departmentsDeletionShortList,
+                        "Which department do you want to delete?"
+                    );
+                    if (departmentDeletion === 0) {
+                        console.log("\nDeletion cancelled!\n");
+                        break;
+                    }
+
+                    const deletionResult = await deleteDepartment(departmentDeletion);
+                    console.log(deletionResult);
+                    break;
+                case 0:
+                    return await processMainMenuInput();
+                default:
+                    userInput = undefined;
+                    console.log("The selected option is incorrect!\n");
+                    break;
+            }
+
+            userInput = undefined;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+}  // *********************************************************************
 
 // =====  MAIN MENU  =====
 

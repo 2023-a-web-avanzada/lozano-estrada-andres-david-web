@@ -1,1 +1,28 @@
-{"employees":[{"name":"Paola Román","birthdate":"03-11-2000","salary":849.5,"position":"Counter","insured":true,"department":2},{"name":"Andrés Lozano","birthdate":"05-04-1998","salary":1800,"position":"Software architect","insured":true,"department":1},{"name":"Carolina Abril","birthdate":"23-12-1996","salary":800,"position":"Actress","insured":false,"department":1}]}
+{
+  "employees": [
+    {
+      "name": "Paola Román",
+      "birthdate": "03-11-2000",
+      "salary": 849.5,
+      "position": "Counter",
+      "insured": true,
+      "department": 2
+    },
+    {
+      "name": "Andrés Lozano",
+      "birthdate": "05-04-1998",
+      "salary": 1800,
+      "position": "Software architect",
+      "insured": true,
+      "department": 1
+    },
+    {
+      "name": "Carolina Abril",
+      "birthdate": "23-12-1996",
+      "salary": 800,
+      "position": "Actress",
+      "insured": false,
+      "department": 1
+    }
+  ]
+}
