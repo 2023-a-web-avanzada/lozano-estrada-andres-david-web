@@ -2,6 +2,8 @@ import fs from 'fs';
 
 const departmentFilePath = "../model/data/department.json";
 
+// =====  LOGIC FUNCTIONS  =====
+
 function readFile() {
     return new Promise(
         (resolve, reject) => {
@@ -39,6 +41,22 @@ function writeFile(content) {
     );
 }
 
+// function that gets a free department ID
+function getFreeDepartmentID(departmentsJSON) {
+    if (departmentsJSON["departments"].length === 0) {
+        return 1;
+    }
+
+    let currentMaxID = departmentsJSON["departments"][0].id;
+    departmentsJSON["departments"].forEach(department => {
+        if (department.id > currentMaxID) {
+            currentMaxID = department.id;
+        }
+    });
+
+    return currentMaxID + 1;
+}
+
 // =====  CRUD EXPORTED FUNCTIONS  =====
 
 // function that gets a list of names of all departments
@@ -68,6 +86,42 @@ export async function getAllDepartments() {
     }
 }
 
+// function that adds a new department
+export async function addDepartment(name, budget, active, location, id = undefined) {
+    try {
+        const departmentsJSON = await readFile();
+        let departmentID = getFreeDepartmentID(departmentsJSON);
+        if (id !== undefined) {
+            departmentID = id;
+        }
+
+        departmentsJSON["departments"].push({
+            id: departmentID,
+            name: name,
+            budget: budget,
+            active: active,
+            location: location
+        });
+
+        if (await writeFile(JSON.stringify(departmentsJSON))) {
+            return "\n" + name + " inserted with ID " + departmentID + "!\n"
+        }
+    } catch (error) {
+        return error + "\n";
+    }
+}
+
+// function that updates a department
+export async function updateDepartment(id, name, budget, active, location) {
+    try {
+        await deleteDepartment(id);
+        await addDepartment(name, budget, active, location, id);
+        return "\n" + name + " updated with ID " + id + "!\n"
+    } catch (error) {
+        return error + "\n";
+    }
+}
+
 // function that deletes a department
 export async function deleteDepartment(departmentID) {
     let departmentName = "";
@@ -84,7 +138,7 @@ export async function deleteDepartment(departmentID) {
         })
 
         if (await writeFile(JSON.stringify({ departments: filteredDepartments }))) {
-            return "\nDepartment " + departmentName + " (ID: " + departmentID + ") deleted!\n"
+            return "\n" + departmentName + " (ID: " + departmentID + ") deleted!\n"
         }
     } catch (error) {
         return error + "\n";

@@ -8,11 +8,11 @@
       "location": "Third floor, main building"
     },
     {
-      "id": 2,
-      "name": "Financial department",
-      "budget": 58450.49,
+      "id": 3,
+      "name": "Human resources deparment",
+      "budget": 41250.5,
       "active": true,
-      "location": "Second floor, main building"
+      "location": "Third floor"
     }
   ]
 }

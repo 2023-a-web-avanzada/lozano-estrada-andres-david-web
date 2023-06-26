@@ -5,12 +5,15 @@ import {
     getEmployeesByDepartmentId,
     getAllEmployeesShortList,
     deleteEmployee,
-    updateEmployee
+    updateEmployee,
+    forceEmployeesUpdate
 } from "../model/entity/employee.js";
 import {
+    addDepartment,
     deleteDepartment,
     getAllDepartments,
-    getAllDepartmentsShortList
+    getAllDepartmentsShortList,
+    updateDepartment
 } from "../model/entity/department.js";
 
 const banner =
@@ -77,6 +80,7 @@ async function getUserListSelection(optionsList, message = "Select an option: ")
     }
 }
 
+// function that validates an input date
 function validateDate(input) {
     const dateRegex = /^\d{2}-\d{2}-\d{4}$/;
     if (!dateRegex.test(input)) {
@@ -310,6 +314,95 @@ async function processDepartmentMenuInput() {
                     const allDepartmentsList = await getAllDepartments();
                     console.log(allDepartmentsList);
                     break;
+                case 2:
+                    console.log("===============================");
+                    console.log("===  DEPARTMENTS INSERTION  ===");
+                    console.log("===============================\n");
+
+                    try {
+                        const name = await getUserInput("Enter the department's name: ");
+                        if (name === "" ) {
+                            console.log("\nDepartment's name cannot be empty!\n");
+                            break;
+                        }
+
+                        let budget = await getUserInput("Enter the department's budget: ");
+                        budget = parseFloat(budget);
+                        if (isNaN(budget) || budget <= 0.0) {
+                            console.log("\nThe budget entered is incorrect!\n");
+                            break;
+                        }
+
+                        let active = await getUserListSelection(
+                            ["1. True", "2. False"],
+                            "Is the department active?"
+                        );
+                        active = active === 1;
+
+                        const location = await getUserInput("Enter the department's location: ");
+                        if (location === "" ) {
+                            console.log("\nDepartment's location cannot be empty!\n");
+                            break;
+                        }
+
+                        const result = await addDepartment(name, budget, active, location);
+                        console.log(result);
+                        break;
+                    } catch (error) {
+                        console.error(error);
+                    }
+                    break;
+                case 3:
+                    console.log("============================");
+                    console.log("===  DEPARTMENTS UPDATE  ===");
+                    console.log("============================\n");
+
+                    try {
+                        const departmentsUpdateShortList = await getAllDepartmentsShortList();
+                        departmentsUpdateShortList.push("0. Cancel update");
+                        const departmentUpdate = await getUserListSelection(
+                            departmentsUpdateShortList,
+                            "Which department do you want to update?"
+                        );
+                        if (departmentUpdate === 0) {
+                            console.log("\nUpdate cancelled!\n");
+                            break;
+                        }
+
+                        const updateName = await getUserInput("Enter the department's new name: ");
+                        if (updateName === "" ) {
+                            console.log("\nDepartment's name cannot be empty!\n");
+                            break;
+                        }
+
+                        let updateBudget = await getUserInput("Enter the department's new budget: ");
+                        updateBudget = parseFloat(updateBudget);
+                        if (isNaN(updateBudget) || updateBudget <= 0.0) {
+                            console.log("\nThe budget entered is incorrect!\n");
+                            break;
+                        }
+
+                        let updateActive = await getUserListSelection(
+                            ["1. True", "2. False"],
+                            "Is the department active?"
+                        );
+                        updateActive = updateActive === 1;
+
+                        const updateLocation = await getUserInput("Enter the department's location: ");
+                        if (updateLocation === "" ) {
+                            console.log("\nDepartment's location cannot be empty!\n");
+                            break;
+                        }
+
+                        const updateResult = await updateDepartment(
+                            departmentUpdate, updateName, updateBudget, updateActive, updateLocation
+                        );
+                        console.log(updateResult);
+                        break;
+                    } catch (error) {
+                        console.error(error);
+                    }
+                    break;
                 case 4:
                     console.log("==============================");
                     console.log("===  DEPARTMENTS DELETION  ===");
@@ -328,6 +421,9 @@ async function processDepartmentMenuInput() {
 
                     const deletionResult = await deleteDepartment(departmentDeletion);
                     console.log(deletionResult);
+
+                    const employeesForceUpdate = await forceEmployeesUpdate(departmentDeletion);
+                    console.log(employeesForceUpdate);
                     break;
                 case 0:
                     return await processMainMenuInput();
@@ -342,7 +438,7 @@ async function processDepartmentMenuInput() {
             console.error(error);
         }
     }
-}  // *********************************************************************
+}
 
 // =====  MAIN MENU  =====
 

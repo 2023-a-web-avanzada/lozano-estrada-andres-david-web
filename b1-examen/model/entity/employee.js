@@ -135,6 +135,35 @@ export async function getAllEmployeesShortList() {
     }
 }
 
+// function that handles the employees' ID's department from delete departments
+export async function forceEmployeesUpdate(deleteDepartmentID) {
+    try {
+        const employeesJSON = await readFile();
+        const updateEmployeesJSON = { employees: [] };
+
+        employeesJSON["employees"].forEach(employee => {
+            let { name, birthdate, salary, position, insured, department } = employee;
+            if (department === deleteDepartmentID) {
+                updateEmployeesJSON["employees"].push({
+                    name: name,
+                    birthdate: birthdate,
+                    salary: salary,
+                    position: position,
+                    insured: insured,
+                    department: 0
+                });
+            } else {
+                updateEmployeesJSON["employees"].push(employee);
+            }
+        });
+
+        await writeFile(JSON.stringify(updateEmployeesJSON));
+        return "Maybe some employees were assigned to the department 0 due to the department deletion!\n"
+    } catch (error) {
+        return error + "\n";
+    }
+}
+
 // =====  STYLE FUNCTIONS  =====
 
 function resizeWord(word, sizeLimit) {
