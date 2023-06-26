@@ -1,7 +1,7 @@
 // e_custom_hook/const/monedas.const.ts
 
 import {Moneda} from "@/app/e_custom_hook/interfaces/moneda";
-const ModenasCost: Moneda[] = [
+export const MonedasConst: Moneda[] = [
     {
         id: 'USD', nombre: 'Dolar Estados Unidos'
     },

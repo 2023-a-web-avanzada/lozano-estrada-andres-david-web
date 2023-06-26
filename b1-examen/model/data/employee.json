@@ -11,10 +11,10 @@
     {
       "name": "Paola Román",
       "birthdate": "03-11-1999",
-      "salary": 960,
+      "salary": 1140,
       "position": "Counter",
       "insured": true,
-      "department": 0
+      "department": 3
     }
   ]
 }
