@@ -49,7 +49,7 @@ if ("") {
     console.log('Es falso');
 }
 
-if ("confectus") {
+if ("confectus_server") {
     console.log('Es verdadero');
 } else {
     console.log('Es falso');
