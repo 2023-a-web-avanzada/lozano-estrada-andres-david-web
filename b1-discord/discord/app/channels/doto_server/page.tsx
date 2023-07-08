@@ -1,11 +1,11 @@
-// ../discord/app/channels/confectus_server/page.tsx
+// ../discord/app/channels/doto_server/page.tsx
 
 import Channels from "@/app/_global_components/channels.component";
 
 export default function Page() {
-    const serverName = "El servidor de Confectus";
-    const textChannels = ["general", "memes"];
-    const voiceChannels = ["Dota 2", "Chill Out"];
+    const serverName = "Doto";
+    const textChannels = ["bienvenido", "general", "música", "hydra-song-requests"];
+    const voiceChannels = ["Doto party gaaaaaa", "amoung us", "Castigo"];
 
     return (
         <>
@@ -13,7 +13,7 @@ export default function Page() {
                 serverName={ serverName }
                 textChannels={ textChannels }
                 voiceChannels={ voiceChannels }
-                adminActions={ true }
+                adminActions={ false }
             />
         </>
     )

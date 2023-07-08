@@ -21,13 +21,6 @@ export default function MenuContainer() {
         setSelectedItemName,
     };
 
-    useEffect(
-        () => {
-            console.log("Current container:", menuContextObject.selectedItemName);
-        },
-        [menuContextObject.selectedItemName]
-    )
-
     return (
         <>
             <ContextContainer.Provider value={ menuContextObject }>

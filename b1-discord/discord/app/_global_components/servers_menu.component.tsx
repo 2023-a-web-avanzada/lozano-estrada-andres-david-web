@@ -15,7 +15,7 @@ export default function ServersMenu() {
                     <ServerItem
                         url={ "messages" }
                         logoPublicPath={ "../menu/discord.svg" }
-                        serverName={ "Messages" }
+                        serverName={ "Direct Messages" }
                     />
 
                     {/* ===== SEPARATION LINE ===== */}
@@ -26,54 +26,56 @@ export default function ServersMenu() {
                     {/* ===== SERVERS ITEMS ===== */}
                     <ServerItem
                         url={ "confectus_server" }
-                        logoPublicPath={ "confectus_server/logo.png" }
-                        serverName={ "Confectus Server Page" }
+                        logoPublicPath={ "confectus_server/confectus.jpg" }
+                        serverName={ "El servidor de Confectus" }
                     />
 
                     <ServerItem
                         url={ "labfis_server" }
-                        logoPublicPath={ "labfis_server/logo.png" }
-                        serverName={ "LAB FIS Server Page" }
+                        logoPublicPath={ "" }
+                        serverName={ "LABFIS" }
                     />
 
                     <ServerItem
-                        url={ "#" }
-                        logoPublicPath={ "" }
-                        serverName={ "#" }
+                        url={ "epic_server" }
+                        logoPublicPath={ "epic_server/epic.jpg" }
+                        serverName={ "Єpic.ຮage" }
                     />
 
                     <ServerItem
-                        url={ "#" }
-                        logoPublicPath={ "" }
-                        serverName={ "#" }
+                        url={ "doto_server" }
+                        logoPublicPath={ "doto_server/doto.jpg" }
+                        serverName={ "Doto" }
                     />
 
                     <ServerItem
-                        url={ "#" }
+                        url={ "tollusk_server" }
                         logoPublicPath={ "" }
-                        serverName={ "#" }
+                        serverName={ "Tollusk" }
                     />
 
                     <ServerItem
-                        url={ "#" }
-                        logoPublicPath={ "" }
-                        serverName={ "#" }
+                        url={ "jar_server" }
+                        logoPublicPath={ "jar_server/jar.jpg" }
+                        serverName={ "G9" }
                     />
 
                     {/* ===== ADD A SERVER ITEM ===== */}
                     <ServerItem
-                        url={ "#" }
+                        url={ "add" }
                         logoPublicPath={ "../menu/add.svg" }
-                        serverName={ "Add a server" }
+                        serverName={ "Añadir un servidor" }
                         alternativeLogoPath={ "../menu/add_hover.svg" }
+                        greenFocusColor={ true }
                     />
 
                     {/* ===== EXPLORE SERVERS ITEM ===== */}
                     <ServerItem
-                        url={ "#" }
+                        url={ "explore" }
                         logoPublicPath={ "../menu/compass.svg" }
-                        serverName={ "Explore discoverable servers" }
+                        serverName={ "Explora servidores descubribles" }
                         alternativeLogoPath={ "../menu/compass_hover.svg" }
+                        greenFocusColor={ true }
                     />
 
                     {/* ===== SEPARATION LINE ===== */}
@@ -83,10 +85,11 @@ export default function ServersMenu() {
 
                     {/* ===== DOWNLOAD APPS ITEM ===== */}
                     <ServerItem
-                        url={ "#" }
+                        url={ "download" }
                         logoPublicPath={ "../menu/download.svg" }
-                        serverName={ "Download apps" }
+                        serverName={ "Descargar aplicaciones" }
                         alternativeLogoPath={ "../menu/download_hover.svg" }
+                        greenFocusColor={ true }
                     />
                 </ul>
             </div>

@@ -1,5 +1,7 @@
 // app/componentes/c_menu.component.tsx
 
+'use client'
+
 export default function C_menuComponent() {
     return (
         <>

@@ -12,7 +12,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <div className="flex min-h-screen">
+                <div className="flex min-h-screen bg-[#1e1f22]">
                     <MenuContainer/>
                     {children}
                 </div>

@@ -1,4 +1,4 @@
-// /a_hola_mundo/page.tsx
+// /a_hola_mundo/CryptoFormulario.tsx
 /*
 const a_componente = function () {
     return (
