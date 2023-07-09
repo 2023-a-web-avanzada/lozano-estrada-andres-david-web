@@ -1,9 +1,10 @@
-// ../discord/app/channels/confectus_server/components/channels.component.tsx
+// ../discord/app/_global_components/channels.component.tsx
 
 'use client'
 
 import localFont from "next/font/local";
 import {useState} from "react";
+import UserControls from "@/app/_global_components/user_controls.component";
 
 const semiBoldFont = localFont({ src: '../fonts/gg-sans-semi-bold.woff2' });
 
@@ -30,11 +31,11 @@ export default function Channels(
     };
 
     // ===== USE STATES =====
-    const [ localSelectedChannel, setLocalSelectedChannel ] = useState("general");
+    const [ localSelectedChannel, setLocalSelectedChannel ] = useState(textChannels[0]);
 
     return (
         <>
-            <div className="bg-[#2b2d31] w-60">
+            <div className="relative bg-[#2b2d31] w-60">
                 {/* ===== SERVER HEADER ===== */}
                 <div className={ "h-12 w-full hover:bg-[#36383d] text-base " + semiBoldFont.className }>
                     <div className="flex items-center px-4 py-3">
@@ -51,7 +52,7 @@ export default function Channels(
                 <div style={ dividerStyle }></div>
 
                 {/* ===== CHANNELS ===== */}
-                <div>
+                <div className={ "mb-auto" }>
                     {/* ===== TEXT CHANNELS HEADER ===== */}
                     <div className="text-gray-light">
                         <div className="flex items-center pt-4 w-full hover:text-white mb-1">
@@ -180,7 +181,13 @@ export default function Channels(
                         </ul>
                     </div>
                 </div>
-                <div>Usuario</div>
+
+                {/* ===== USER CONTROLS ===== */}
+                <UserControls
+                    userName={ "Confectus" }
+                    userImagePath={ "../user/user_photo.png" }
+                    userStatus={ "No molestar" }
+                />
             </div>
         </>
     )
