@@ -1,4 +1,240 @@
 {
-  "serverName": "Confectus Server",
-  "channelName": "general"
+  "messages": [
+    {
+      "userName": "Alex816Z",
+      "userPhotoPath": "../profiles/alex816z.jpg",
+      "messageDate": "2023-03-23T19:24:00",
+      "message": "estba con el cel hace rato",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-03-23T19:24:00",
+          "message": "off mijo off"
+        },
+        {
+          "messageDate": "2023-03-23T19:24:00",
+          "message": "que tal estab mi slar"
+        },
+        {
+          "messageDate": "2023-03-23T19:27:00",
+          "message": "no he jugado timber"
+        },
+        {
+          "messageDate": "2023-03-23T19:27:00",
+          "message": "jajajaja"
+        },
+        {
+          "messageDate": "2023-03-23T19:27:00",
+          "message": "tranuqi jugger le hace al dota"
+        }
+      ]
+    },
+    {
+      "userName": "-----",
+      "userPhotoPath": "",
+      "messageDate": "2023-04-08T00:00:00",
+      "message": "",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-04-08T16:57:00",
+      "message": "../channels/confectus_server/general/doto_confectus.png",
+      "simpleMessages": []
+    },
+    {
+      "userName": "-----",
+      "userPhotoPath": "",
+      "messageDate": "2023-04-08T00:00:00",
+      "message": "",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-04-18T21:37:00",
+      "message": "xD",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-04-18T21:43:00",
+          "message": "la pasiva chch"
+        },
+        {
+          "messageDate": "2023-04-18T21:44:00",
+          "message": "alo"
+        }
+      ]
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-04-18T21:45:00",
+      "message": "fruta en la noche hace mal",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-04-18T21:55:00",
+      "message": "asi mismo se hace",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Alex816Z",
+      "userPhotoPath": "../profiles/alex816z.jpg",
+      "messageDate": "2023-04-18T21:59:00",
+      "message": "Jajaja",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-04-18T22:00:00",
+      "message": "Siempre transmite auqnue no estemos",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-04-18T22:01:00",
+          "message": "Es su fetiche"
+        },
+        {
+          "messageDate": "2023-04-18T22:02:00",
+          "message": "si"
+        },
+        {
+          "messageDate": "2023-04-18T22:02:00",
+          "message": "el bkb para cuando"
+        },
+        {
+          "messageDate": "2023-04-18T22:07:00",
+          "message": "Ya es 5k el muchacho"
+        }
+      ]
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-04-18T22:09:00",
+      "message": "WP",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-04-18T22:09:00",
+          "message": "TY"
+        },
+        {
+          "messageDate": "2023-04-18T22:09:00",
+          "message": "Jajajaja"
+        },
+        {
+          "messageDate": "2023-04-18T22:09:00",
+          "message": "Ya se gastó tambien"
+        },
+        {
+          "messageDate": "2023-04-18T22:10:00",
+          "message": "Estoy emputado porque haces perder"
+        },
+        {
+          "messageDate": "2023-04-18T22:11:00",
+          "message": "../channels/confectus_server/general/ogre.gif"
+        },
+        {
+          "messageDate": "2023-04-18T22:11:00",
+          "message": "Perdidas pero"
+        },
+        {
+          "messageDate": "2023-04-18T22:11:00",
+          "message": "Esa vaina... yo no se que te cuesta comprar una pipa jaja"
+        }
+      ]
+    },
+    {
+      "userName": "mc",
+      "userPhotoPath": "../profiles/mc.jpg",
+      "messageDate": "2023-04-18T22:11:00",
+      "message": "../channels/confectus_server/general/stuff.jpg",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-04-18T22:13:00",
+      "message": "Vale arta ese",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-04-18T22:13:00",
+          "message": "No ayuda ni a subir de medalla"
+        },
+        {
+          "messageDate": "2023-04-18T22:14:00",
+          "message": "Jajajaja ya dice"
+        },
+        {
+          "messageDate": "2023-04-18T22:15:00",
+          "message": "En un día vas a entender todo el parche"
+        },
+        {
+          "messageDate": "2023-04-18T22:15:00",
+          "message": "Ni vrg tienes que sentirle al heroe :S"
+        },
+        {
+          "messageDate": "2023-04-18T22:18:00",
+          "message": ":v"
+        }
+      ]
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-04-18T22:21:00",
+      "message": "Esa vaina",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-04-18T22:21:00",
+          "message": "Provecho"
+        },
+        {
+          "messageDate": "2023-04-18T22:21:00",
+          "message": "Nos vemos"
+        },
+        {
+          "messageDate": "2023-04-18T22:21:00",
+          "message": "../channels/confectus_server/general/chavo-rezo.gif"
+        },
+        {
+          "messageDate": "2023-04-18T22:22:00",
+          "message": "Nel"
+        },
+        {
+          "messageDate": "2023-04-18T22:22:00",
+          "message": "Nos vemos"
+        },
+        {
+          "messageDate": "2023-04-18T22:22:00",
+          "message": "Hasta que te bloquee nomas"
+        },
+        {
+          "messageDate": "2023-04-18T22:22:00",
+          "message": "Pilas pilas"
+        }
+      ]
+    },
+    {
+      "userName": "-----",
+      "userPhotoPath": "",
+      "messageDate": "2023-04-08T00:00:00",
+      "message": "",
+      "simpleMessages": []
+    },
+    {
+      "userName": "mc",
+      "userPhotoPath": "../profiles/mc.jpg",
+      "messageDate": "2023-05-17T20:19:00",
+      "message": "../channels/confectus_server/general/vpn.png",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-05-17T20:20:00",
+          "message": "Al alex le toco una pc con VPN en china jajaja"
+        }
+      ]
+    }
+  ]
 }

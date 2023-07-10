@@ -16,7 +16,7 @@ export default function ChannelHeader(
 
     return (
         <>
-            <div className={ "relative flex items-center h-12 w-full px-2 bg-[#313338]" }>
+            <div className={ "relative flex items-center w-full px-2 bg-[#313338]" } style={{ minHeight: "48px", }}>
                {/* ===== CHANNEL NAME ===== */}
                <div className={ "flex items-center flex-grow " + semiBoldFont.className }>
                    <img className={ "mx-2" } src={ "../server/hashtag.svg" } alt={ "#" } />

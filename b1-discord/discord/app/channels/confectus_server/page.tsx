@@ -8,6 +8,7 @@ export default function Page() {
         serverName: "El servidor de Confectus",
         textChannels: ["general", "memes"],
         voiceChannels: ["Dota 2", "Chill Out"],
+        adminActions: true,
     } as ChannelsProperties;
 
     return (
