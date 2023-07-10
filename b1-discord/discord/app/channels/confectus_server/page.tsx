@@ -1,22 +1,18 @@
 // ../discord/app/channels/confectus_server/page.tsx
 
-import Channels from "@/app/_global_components/channels.component";
-import ChannelContent from "@/app/_global_components/channel_content.component";
+import {ChannelsProperties} from "@/app/_global_components/channels.component";
+import ServerChannelContainer from "@/app/_global_components/server_channel_container";
 
 export default function Page() {
-    const serverName = "El servidor de Confectus";
-    const textChannels = ["general", "memes"];
-    const voiceChannels = ["Dota 2", "Chill Out"];
+    const channelProperties = {
+        serverName: "El servidor de Confectus",
+        textChannels: ["general", "memes"],
+        voiceChannels: ["Dota 2", "Chill Out"],
+    } as ChannelsProperties;
 
     return (
         <>
-            <Channels
-                serverName={ serverName }
-                textChannels={ textChannels }
-                voiceChannels={ voiceChannels }
-                adminActions={ true }
-            />
-            <ChannelContent />
+            <ServerChannelContainer channelsProperties={ channelProperties } />
         </>
     )
 }

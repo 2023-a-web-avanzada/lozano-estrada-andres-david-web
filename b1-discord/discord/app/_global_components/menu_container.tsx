@@ -2,11 +2,10 @@
 
 'use client'
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MenuContextObject } from "@/app/_interfaces/menu_context_object";
 import { ContextContainer } from "@/app/_context/context_container";
 import ServersMenu from "@/app/_global_components/servers_menu.component";
-
 import { usePathname } from 'next/navigation';
 
 export default function MenuContainer() {

@@ -3,12 +3,13 @@
 'use client'
 
 import localFont from "next/font/local";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import UserControls from "@/app/_global_components/user_controls.component";
+import {ChannelContextContainer} from "@/app/_context/channel_context_container";
 
 const semiBoldFont = localFont({ src: '../fonts/gg-sans-semi-bold.woff2' });
 
-type ChannelsProperties = {
+export type ChannelsProperties = {
     serverName: string,
     textChannels: string[],
     voiceChannels: string[],
@@ -19,6 +20,7 @@ export default function Channels(
     properties: ChannelsProperties,
 ) {
     const { serverName, textChannels, voiceChannels, adminActions } = properties;
+    const channelContextContainer = useContext(ChannelContextContainer);
 
     const imageHeaderStyle = {
         height: "18px",
@@ -76,7 +78,7 @@ export default function Channels(
                         <ul>
                             {
                                 textChannels.map(channelName => (
-                                    <li className={
+                                    <li key={channelName} className={
                                         (localSelectedChannel === channelName ? "bg-[#404249] text-white " :
                                             "hover:bg-[#36373d] hover:text-white ") +
                                         "relative mx-2 mt-0.5 h-8 px-2 py-1.5 rounded flex items-center " +
@@ -85,6 +87,7 @@ export default function Channels(
                                         onClick={ event => {
                                             event.preventDefault();
                                             setLocalSelectedChannel(channelName);
+                                            channelContextContainer.setSelectedChannel(channelName);
                                         }}
                                     >
                                         <img className="h-5 w-5 mr-1.5" src={ "../server/hashtag.svg" } alt="#" />
@@ -138,7 +141,7 @@ export default function Channels(
                         <ul>
                             {
                                 voiceChannels.map(channelName => (
-                                    <li className={
+                                    <li key={channelName} className={
                                         (localSelectedChannel === channelName ? "bg-[#404249] text-white " :
                                             "hover:bg-[#36373d] hover:text-white ") +
                                         "relative mx-2 mt-0.5 h-8 px-2 py-1.5 rounded flex items-center " +
@@ -147,6 +150,7 @@ export default function Channels(
                                         onClick={ event => {
                                             event.preventDefault();
                                             setLocalSelectedChannel(channelName);
+                                            channelContextContainer.setSelectedChannel(channelName);
                                         }}
                                     >
                                         <img className="h-5 w-5 mr-1.5" src={ "../server/sound.svg" } alt="#" />
