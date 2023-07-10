@@ -35,7 +35,7 @@ export default function Channels(
 
     return (
         <>
-            <div className="relative bg-[#2b2d31] w-60">
+            <div className={ "relative bg-[#2b2d31] w-60 flex-shrink-0" }>
                 {/* ===== SERVER HEADER ===== */}
                 <div className={ "h-12 w-full hover:bg-[#36383d] text-base " + semiBoldFont.className }>
                     <div className="flex items-center px-4 py-3">

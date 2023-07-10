@@ -1,6 +1,7 @@
 // ../discord/app/channels/confectus_server/page.tsx
 
 import Channels from "@/app/_global_components/channels.component";
+import ChannelContent from "@/app/_global_components/channel_content.component";
 
 export default function Page() {
     const serverName = "El servidor de Confectus";
@@ -15,6 +16,7 @@ export default function Page() {
                 voiceChannels={ voiceChannels }
                 adminActions={ true }
             />
+            <ChannelContent />
         </>
     )
 }
