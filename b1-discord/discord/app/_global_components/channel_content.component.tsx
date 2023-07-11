@@ -9,6 +9,8 @@ import {ChannelContextContainer} from "@/app/_context/channel_context_container"
 import {MainMessageObject} from "@/app/_interfaces/main_message_object";
 import {SimpleMessageObject} from "@/app/_interfaces/simple_message_object";
 import localFont from "next/font/local";
+import {format} from 'date-fns';
+import {es} from "date-fns/locale";
 
 const semiBoldFont = localFont({ src: '../fonts/gg-sans-semi-bold.woff2' });
 const mediumFont = localFont({ src: '../fonts/gg-sans-medium.woff2' });
@@ -76,8 +78,18 @@ function renderMainMessage(jsonObject: MainMessageObject[]) {
     return jsonObject.map(message => (
         <>
             {
+                // ===== DIVIDER =====
                 message.userName === "-----" ?
-                    <div className={ "h-px bg-[#52555b] w-auto mx-4 mt-6 mb-2" } />
+                    <div className={
+                        "relative flex items-center justify-center h-px bg-[#52555b] w-auto mx-4 mt-6 mb-2"
+                    }>
+                        <div className={
+                            "absolute bg-[#313338] px-1 w-auto leading-4 text-xs text-gray-light " +
+                            semiBoldFont.className
+                        }>
+                            { formatDate(message.messageDate) }
+                        </div>
+                    </div>
                     :
                     <>
                         <li
@@ -197,4 +209,9 @@ function parseTime(date: string) {
 
     return dateObject.getHours().toLocaleString('en-US', { minimumIntegerDigits: 2 }) +
         ":" + dateObject.getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2 });
+}
+
+function formatDate(inputDate: string): string {
+    const date = new Date(inputDate);
+    return format(date, 'd \'de\' MMMM \'de\' yyyy', {locale: es});
 }
