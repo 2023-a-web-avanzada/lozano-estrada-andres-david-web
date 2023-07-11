@@ -14,6 +14,8 @@ const b_componente = () => {
 }
 */
 
+'use client'
+
 export default function page() {
     return (
         <>

@@ -1,4 +1,203 @@
 {
-  "serverName": "Confectus Server",
-  "channelName": "memes"
+  "messages": [
+    {
+      "userName": "mc",
+      "userPhotoPath": "../profiles/mc.jpg",
+      "messageDate": "2023-04-18T15:43:00",
+      "message": "pa eso jugaba yo solo :(",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-04-18T15:43:00",
+          "message": "puro manco aqui con ustedes"
+        },
+        {
+          "messageDate": "2023-04-18T15:44:00",
+          "message": "../channels/confectus_server/memes/batman.jpg"
+        },
+        {
+          "messageDate": "2023-04-18T15:47:00",
+          "message": "por eso no los tratan bien"
+        }
+      ]
+    },
+    {
+      "userName": "-----",
+      "userPhotoPath": "",
+      "messageDate": "2023-04-08T00:00:00",
+      "message": "",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-05-12T22:18:00",
+      "message": "chiiii... se les tiene fe y salen con vainas",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-05-12T22:23:00",
+          "message": "ya mejor desinstalen"
+        },
+        {
+          "messageDate": "2023-05-12T22:41:00",
+          "message": "si ves lo que haces :I"
+        },
+        {
+          "messageDate": "2023-05-12T22:41:00",
+          "message": "aggg"
+        }
+      ]
+    },
+    {
+      "userName": "mc",
+      "userPhotoPath": "../profiles/mc.jpg",
+      "messageDate": "2023-05-12T23:02:00",
+      "message": "asi pasa cuando acondece el suceso imprevisto",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-05-12T23:07:00",
+          "message": "mejor me abro como las yucas"
+        }
+      ]
+    },
+    {
+      "userName": "-----",
+      "userPhotoPath": "",
+      "messageDate": "2023-04-08T00:00:00",
+      "message": "",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-05-14T17:13:00",
+      "message": "../channels/confectus_server/memes/bed.jpg",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-05-14T17:13:00",
+          "message": "es que hacen falta unas vacaciones"
+        }
+      ]
+    },
+    {
+      "userName": "Alex816Z",
+      "userPhotoPath": "../profiles/alex816z.jpg",
+      "messageDate": "2023-05-14T17:42:00",
+      "message": "jajajaja xs",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-05-14T17:42:00",
+          "message": "hasta para vale vg valen"
+        },
+        {
+          "messageDate": "2023-05-14T17:42:00",
+          "message": "por gusto"
+        },
+        {
+          "messageDate": "2023-05-14T17:45:00",
+          "message": "a su mareeee"
+        }
+      ]
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-05-14T21:11:00",
+      "message": "ya respeten... para eso está el otro canal",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-05-14T21:12:00",
+          "message": "../channels/confectus_server/memes/dinno.jpg"
+        }
+      ]
+    },
+    {
+      "userName": "mc",
+      "userPhotoPath": "../profiles/mc.jpg",
+      "messageDate": "2023-05-14T21:17:00",
+      "message": "el resentidoo",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-05-12T23:07:00",
+          "message": "pa lo que son lo mismo"
+        },
+        {
+          "messageDate": "2023-05-12T23:07:00",
+          "message": "../channels/confectus_server/memes/doggo.jpg"
+        },
+        {
+          "messageDate": "2023-05-12T23:07:00",
+          "message": "../channels/confectus_server/memes/homer.jpg"
+        },
+        {
+          "messageDate": "2023-05-12T23:07:00",
+          "message": "sale otra o ya meeee"
+        }
+      ]
+    },
+    {
+      "userName": "Alex816Z",
+      "userPhotoPath": "../profiles/alex816z.jpg",
+      "messageDate": "2023-05-12T23:09:00",
+      "message": "una mas a de ser",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-05-14T23:58:00",
+      "message": "aho esta no esperaba más... ",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-05-14T23:58:00",
+          "message": "../channels/confectus_server/memes/towers.gif"
+        }
+      ]
+    },
+    {
+      "userName": "mc",
+      "userPhotoPath": "../profiles/mc.jpg",
+      "messageDate": "2023-05-14T23:59:00",
+      "message": "asi o mas racista",
+      "simpleMessages": []
+    },
+    {
+      "userName": "-----",
+      "userPhotoPath": "",
+      "messageDate": "2023-04-08T00:00:00",
+      "message": "",
+      "simpleMessages": []
+    },
+    {
+      "userName": "mc",
+      "userPhotoPath": "../profiles/mc.jpg",
+      "messageDate": "2023-06-07T19:43:00",
+      "message": "../channels/confectus_server/memes/mechanical.gif",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-05-14T23:58:00",
+          "message": "yaya mejor mireeen"
+        }
+      ]
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-06-07T19:54:00",
+      "message": "usa disel de seguro",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-06-07T19:54:00",
+          "message": "../channels/confectus_server/memes/bird.jpg"
+        },
+        {
+          "messageDate": "2023-06-07T19:55:00",
+          "message": "es que ya no hay tiempo"
+        },
+        {
+          "messageDate": "2023-06-07T19:55:00",
+          "message": "mucha vaina... :0"
+        }
+      ]
+    }
+  ]
 }

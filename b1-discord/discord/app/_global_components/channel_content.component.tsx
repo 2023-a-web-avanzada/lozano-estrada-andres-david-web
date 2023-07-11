@@ -26,8 +26,9 @@ export default function ChannelContent(
     const selectedChannel = channelContextContainer.selectedChannel;
 
     const dividerStyle = {
-        height: '5px',
-        backgroundImage: 'linear-gradient(to bottom, #1e1f22, #27292c',
+        height: "1px",
+        marginTop: "48px",
+        backgroundImage: "linear-gradient(to bottom, #1e1f22, #27292c",
     };
 
     // ===== USE STATES =====
@@ -50,11 +51,11 @@ export default function ChannelContent(
 
     return (
         <>
-            <div className={ "w-screen h-screen flex flex-col bg-[#313338]" }>
+            <div className={ "relative w-screen h-screen flex flex-col bg-[#313338]" }>
                 {/* ===== CHANNEL HEADER ===== */}
                 <ChannelHeader channelName={ "general" } />
 
-                <div style={ dividerStyle }></div>
+                <div className={ "absolute inset-0" } style={ dividerStyle }></div>
 
                 {/* ===== CHANNEL MAIN CONTENT ===== */}
                 <div className={ "flex-grow overflow-y-scroll bg-[#313338]" }>

@@ -1,4 +1,79 @@
 {
-  "serverName": "Doto",
-  "channelName": "general"
+  "messages": [
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-07-09T20:11:00",
+      "message": "es para una prueba nomas",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-07-09T20:12:00",
+          "message": "ya no hay dias buenos"
+        },
+        {
+          "messageDate": "2023-07-09T20:12:00",
+          "message": "solo dias"
+        },
+        {
+          "messageDate": "2023-07-09T20:12:00",
+          "message": "pero es lo que hay :)"
+        },
+        {
+          "messageDate": "2023-07-09T20:19:00",
+          "message": "../channels/doto_server/general/dogga.jpg"
+        },
+        {
+          "messageDate": "2023-07-09T20:19:00",
+          "message": "me avisan"
+        }
+      ]
+    },
+    {
+      "userName": "-----",
+      "userPhotoPath": "",
+      "messageDate": "2023-04-08T00:00:00",
+      "message": "",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Capitan gaaaaa",
+      "userPhotoPath": "../profiles/captain.jpg",
+      "messageDate": "2023-07-10T14:20:00",
+      "message": "ya naaaaa",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-07-10T14:21:00",
+          "message": "es que duele que ilusionen aaaaaaaaaaa"
+        },
+        {
+          "messageDate": "2023-07-10T14:21:00",
+          "message": "aaaaaaaaaaaaaaaaa"
+        },
+        {
+          "messageDate": "2023-07-10T14:23:00",
+          "message": "pero wueno yaa fue"
+        },
+        {
+          "messageDate": "2023-07-10T14:23:00",
+          "message": "../channels/doto_server/general/mask.jpg"
+        }
+      ]
+    },
+    {
+      "userName": "Carnico",
+      "userPhotoPath": "../profiles/carnico.jpg",
+      "messageDate": "2023-07-10T15:12:00",
+      "message": "../channels/doto_server/general/crypto.jpg",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-07-10T15:12:00",
+          "message": "no serán ortivas"
+        },
+        {
+          "messageDate": "2023-07-10T15:12:00",
+          "message": "una mano lava a la otra"
+        }
+      ]
+    }
+  ]
 }

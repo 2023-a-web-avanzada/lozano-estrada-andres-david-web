@@ -1,4 +1,130 @@
 {
-  "serverName": "Doto",
-  "channelName": "bienvenido"
+  "messages": [
+    {
+      "userName": "Capitan gaaaaa",
+      "userPhotoPath": "../profiles/captain.jpg",
+      "messageDate": "2023-04-18T13:18:00",
+      "message": "no para la otra ya salen",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-04-18T13:23:00",
+          "message": "hasta eso peuden darle"
+        },
+        {
+          "messageDate": "2023-04-18T13:23:00",
+          "message": "yo me uno mas luego"
+        },
+        {
+          "messageDate": "2023-04-18T13:23:00",
+          "message": "hasta comer puesss"
+        }
+      ]
+    },
+    {
+      "userName": "Carnico",
+      "userPhotoPath": "../profiles/carnico.jpg",
+      "messageDate": "2023-04-18T13:28:00",
+      "message": "alooooo",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-04-18T13:28:00",
+          "message": "../channels/doto_server/bienvenido/monkey.jpg"
+        }
+      ]
+    },
+    {
+      "userName": "Capitan gaaaaa",
+      "userPhotoPath": "../profiles/captain.jpg",
+      "messageDate": "2023-04-18T16:21:00",
+      "message": "no para la otra ya salen",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-04-18T16:23:00",
+          "message": "bruto asustas a los ninos"
+        },
+        {
+          "messageDate": "2023-04-18T16:23:00",
+          "message": "yam ejor salganse"
+        },
+        {
+          "messageDate": "2023-04-18T16:24:00",
+          "message": "ayudo a salir de baja haha"
+        }
+      ]
+    },
+    {
+      "userName": "-----",
+      "userPhotoPath": "",
+      "messageDate": "2023-04-08T00:00:00",
+      "message": "",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Confectus",
+      "userPhotoPath": "../profiles/confectus.png",
+      "messageDate": "2023-04-27T21:15:00",
+      "message": "suspicious",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-04-27T21:15:00",
+          "message": "no hay muchos ahora"
+        },
+        {
+          "messageDate": "2023-04-27T21:18:00",
+          "message": "../channels/doto_server/bienvenido/nigga.jpg"
+        },
+        {
+          "messageDate": "2023-04-27T21:21:00",
+          "message": "la vaina es esa"
+        },
+        {
+          "messageDate": "2023-04-27T21:22:00",
+          "message": "si puediera 10k en un mes jaja"
+        }
+      ]
+    },
+    {
+      "userName": "-----",
+      "userPhotoPath": "",
+      "messageDate": "2023-04-08T00:00:00",
+      "message": "",
+      "simpleMessages": []
+    },
+    {
+      "userName": "Carnico",
+      "userPhotoPath": "../profiles/carnico.jpg",
+      "messageDate": "2023-06-10T20:21:00",
+      "message": "pasaaaa pa akaaa",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-06-10T20:21:00",
+          "message": "uffff"
+        },
+        {
+          "messageDate": "2023-06-10T20:21:00",
+          "message": "ya antojarons"
+        },
+        {
+          "messageDate": "2023-06-10T20:22:00",
+          "message": "pa k inviten pero hoy"
+        }
+      ]
+    },
+    {
+      "userName": "Capitan gaaaaa",
+      "userPhotoPath": "../profiles/captain.jpg",
+      "messageDate": "2023-06-10T20:22:00",
+      "message": "pero aceptan o no",
+      "simpleMessages": [
+        {
+          "messageDate": "2023-06-10T20:22:00",
+          "message": "chchc vuelvo en media entonces"
+        },
+        {
+          "messageDate": "2023-06-10T20:27:00",
+          "message": "zzzzzZzzz"
+        }
+      ]
+    }
+  ]
 }
