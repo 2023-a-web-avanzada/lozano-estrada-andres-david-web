@@ -60,7 +60,7 @@ export default function ChannelContent(
                 <div className={ "absolute inset-0" } style={ dividerStyle }></div>
 
                 {/* ===== CHANNEL MAIN CONTENT ===== */}
-                <div className={ "flex-grow overflow-y-scroll bg-[#313338]" }>
+                <div className={ "flex-grow overflow-y-scroll mt-px bg-[#313338]" }>
                     <ol>
                         { jsonData ? renderMainMessage(jsonData) : "No hay nada capo!" }
                     </ol>
