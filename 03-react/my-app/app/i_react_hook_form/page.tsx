@@ -1,9 +1,9 @@
 'use client'
 
 import {useState} from "react";
-import {useForm} from "react-hook-form";
+import {Controller, useForm} from "react-hook-form";
 import {FormularioEjemplo} from "@/app/i_react_hook_form/types/formulario-ejemplo";
-import {Button, InputLabel, FormControl} from "@mui/material";
+import {Button, InputLabel, FormControl, Select, MenuItem} from "@mui/material";
 
 export default function Page() {
     const [nombre, setNombre] = useState("Andrés");
@@ -38,7 +38,22 @@ export default function Page() {
                                     message: "Nombre requerido"
                                 },
                                 maxLength: {value: 20, message: "Longitud máxima de 20"},
-                                minLength: {value: 20, message: "Longitud mínima de 10"},
+                                minLength: {value: 5, message: "Longitud mínima de 10"},
+                                validate: {
+                                    soloNumeros: (valorActual) => {
+                                        // transformar a numero un string
+                                        // number("1")
+                                        // +"1"
+                                        if (Number.isNaN(+valorActual)) {
+                                            // Se puede devolver un false o un mensaje de error
+                                            // return false; // Error
+                                            return 'Ingrese solamente números'; // Error
+                                        } else {
+                                            // Se devuelve un true
+                                            return true;    // Está correcto
+                                        }
+                                    }
+                                }
                             })
                         }
                     />
@@ -56,7 +71,29 @@ export default function Page() {
                 <div className={ "mb-3" }>
                     <FormControl fullWidth>
                         <InputLabel id={ "estadoCivilLabelId" }>Estado civil</InputLabel>
-                        { }
+                        <Controller
+                            control={ control }
+                            rules={{ required: { value: true, message: "Estado C. requerido" } }}
+                            name={ "estadoCivil" }
+                            render={ ({field: {onChange, value, onBlur,}}) => {
+                                return (
+                                    <>
+                                        <Select
+                                            labelId={"estadoCivilLabelId"}
+                                            id={"estadoCivilId"}
+                                            label={"Estado Civil"}
+                                            onBlur={onBlur}
+                                            value={value}
+                                            onChange={onChange as any}
+                                        >
+                                            <MenuItem value={'casado'}>Casado</MenuItem>
+                                            <MenuItem value={'soltero'}>Soltero</MenuItem>
+                                        </Select>
+                                    </>
+                                )
+                            }
+                            }
+                        />
                     </FormControl>
                 </div>
 
