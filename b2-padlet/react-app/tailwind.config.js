@@ -7,10 +7,25 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'md': '745px',
+        // => @media (min-width: 745px) { ... }
+        'sm': '450px',
+        // => @media (min-width: 450px) { ... }
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      animation: {
+        'oscillate-background': 'oscillate-background 1.25s infinite',
+      },
+      keyframes: {
+        'oscillate-background': {
+          '0%, 100%': { backgroundColor: '#ff4081' },
+          '50%': { backgroundColor: '#f7b809' },
+        },
       },
     },
   },
