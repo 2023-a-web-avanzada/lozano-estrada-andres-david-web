@@ -14,7 +14,10 @@ export default function Header(
     return (
         <>
             {/* LOGO */}
-            <a className={ 'cursor-pointer absolute top-[18px] start-5 w-12 h-3 leading-3' }>
+            <a
+                href={ '/login' }
+                className={ 'cursor-pointer absolute top-[18px] start-5 w-12 h-3 leading-3' }
+            >
                 <img
                     className={ 'w-full h-full hover:hover:opacity-100 transition-opacity opacity-[0.38]' }
                     src={ '/icons/padlet.svg' }

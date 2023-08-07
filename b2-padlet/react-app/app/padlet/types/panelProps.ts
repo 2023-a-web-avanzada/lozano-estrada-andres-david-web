@@ -1,3 +1,6 @@
+import { PostForm } from "@/app/padlet/types/postForm";
+
 export type PanelProps = {
-    onHide: () => undefined;
+    onHide: () => undefined,
+    onAddPost: (post: PostForm) => undefined
 }

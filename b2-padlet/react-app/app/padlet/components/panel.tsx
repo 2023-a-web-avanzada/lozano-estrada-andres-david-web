@@ -3,8 +3,8 @@
 import { useForm } from "react-hook-form";
 import localFont from "next/font/local";
 import { useEffect, useState } from "react";
-import { PostForm } from "@/app/padlet/types/postForm";
-import {PanelProps} from "@/app/padlet/types/panelProps";
+import { PanelProps } from "@/app/padlet/types/panelProps";
+import {PostForm} from "@/app/padlet/types/postForm";
 
 const alps = localFont({ src: '../../fonts/alps.woff2' });
 const oricons = localFont({ src: '../../fonts/oricons.woff2' });
@@ -12,7 +12,7 @@ const oricons = localFont({ src: '../../fonts/oricons.woff2' });
 export default function Panel(
     props: PanelProps
 ) {
-    const { onHide } = props;
+    const { onHide, onAddPost } = props;
 
     const [ isValidForm, setIsValidForm ] = useState(false);
     const [ topicAreaValue, setTopicAreaValue ] = useState("");
@@ -44,8 +44,9 @@ export default function Panel(
         topicAreaValue.trim() === '' && contentAreaValue.trim() === '' ? setIsValidForm(false) : setIsValidForm(true);
     };
 
-    const handlePostSubmit = (data: PostForm) => {
-        console.log(data);  // *********************** SEND NEW POST EVENT *********************************************
+    // Delegating adding a post to the parent
+    const handlePostAdding = (data: PostForm) => {
+        onAddPost(data);
         onHide();
     };
 
@@ -60,7 +61,7 @@ export default function Panel(
                     className={ 'pointer-events-auto relative flex flex-col sm:w-full md:rounded-3xl min-h-[540px] ' +
                         'md:min-w-[540px]' }
                     style={{ background: 'rgba(17, 17, 17, 1)' }}
-                    onSubmit={ handleSubmit(handlePostSubmit) }
+                    onSubmit={ handleSubmit(handlePostAdding) }
                 >
                     {/* OPTIONS */}
                     <div

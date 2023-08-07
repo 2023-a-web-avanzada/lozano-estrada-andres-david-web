@@ -29,7 +29,7 @@ export default function Post(
         // When the active user has given like
         setNumberOfLikes(numberOfLikes - 1);
         setActiveUserLike(false);
-        // ***************************************** SEND LIKE EVENT ***************************************************
+        // ***************************************** SEND DISLIKE EVENT ************************************************
     }
 
     return (
@@ -47,7 +47,11 @@ export default function Post(
                             <div className={ 'transform transition-transform flex group justify-start items-start ' }>
                                 <span className={ 'select-none text-xs py-0 px-1.5 h-4 mt-2 mb-[5px] ' +
                                         'text-black text-opacity-0 group-hover:text-opacity-50 font-semibold' }>
-                                    <span className={ 'hover:text-black' }>Eliminar</span>
+                                    <span
+                                        className={ 'hover:text-black' }
+                                    >
+                                        Eliminar
+                                    </span>
                                 </span>
                             </div>
 

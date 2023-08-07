@@ -3,11 +3,10 @@
 import { Controller, useForm } from "react-hook-form";
 import localFont from "next/font/local";
 import { LoginProps } from "@/app/login/types/loginProps";
-import { useContext, useState } from "react";
-import io from "socket.io-client";
-import { UserProps } from "@/app/padlet/types/userProps";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ContextContainer } from "@/app/context/ContextContainer";
+import io from "socket.io-client";
 
 const webSocketServer = 'http://localhost:11220';
 const socket = io(webSocketServer);
@@ -15,7 +14,8 @@ const socket = io(webSocketServer);
 const alps = localFont({ src: '../fonts/alps.woff2' });
 
 export default function Page() {
-    const { control, handleSubmit, register, setValue, formState: { errors } } = useForm({
+    const router = useRouter();
+    const { control, handleSubmit, register, setValue, formState: { errors, isValid } } = useForm({
         defaultValues: {
             padletId: '',
             userName: '',
@@ -31,8 +31,15 @@ export default function Page() {
     const setUserImagePath = contextContainer.setUserImagePath;
 
     // Use states
+    const [ connectionAllowed, setConnectionAllowed ] = useState(true);
     const [ selectedImage, setSelectedImage ] = useState('user-1.jpg');
-    const router = useRouter();
+
+    useEffect(() => {
+            socket.on('connect', () => { setConnectionAllowed(true); });
+            socket.on('disconnect', () => { setConnectionAllowed(false); });
+        },
+        []
+    );
 
     const handleSelectedImage = (imagePath: string) => {
         setSelectedImage(imagePath);
@@ -41,32 +48,17 @@ export default function Page() {
 
     // ==========   HANDLING SEND FORM EVENT   ==========
     const handleFormSubmit = (data: LoginProps) => {
-        const user: UserProps = { userName: data.userName, userImagePath: data.userImagePath };
+        if (connectionAllowed) {
+            // Set context objects
+            setPadletId(data.padletId);
+            setUserName(data.userName.trim() !== '' ? data.userName : 'Anónimo');
+            setUserImagePath(data.userImagePath);
 
-        joinPadlet({padletId: data.padletId, user});
-    };
-
-    // ==========   METHOD FOR JOINING A PADLET   ==========
-    const joinPadlet = (data: { padletId: string, user: UserProps }) => {
-        const joinPadletData = {
-            padletId: data.padletId,
-            userName: data.user.userName === '' ? 'Anónimo' : data.user.userName,
-            userImagePath: data.user.userImagePath
-        };
-
-        socket.emit(
-            'join-padlet',
-            joinPadletData,
-            () => {
-                // Set context objects
-                setPadletId(data.padletId);
-                setUserName(data.user.userName);
-                setUserImagePath(data.user.userImagePath);
-
-                // Open the padlet of the respective room
-                router.push('/padlet');
-            }
-        );
+            // Open the padlet of the respective room
+            router.push('/padlet');
+        } else {
+            router.refresh();
+        }
     };
 
     return (
@@ -223,15 +215,14 @@ export default function Page() {
                                     className={ 'px-4 md:text-xl sm:text-lg bg-opacity-60 hover:bg-opacity-80 ' +
                                     'hover:font-bold min-w-[130px] min-h-[60px] bg-[#ff4081] rounded-2xl mr-4' }
                                     type={ 'reset' }
+                                    onClick={ () => { handleSelectedImage('user-1.jpg') } }
                                 >
                                     Cancelar
                                 </button>
                                 <button
                                     className={ 'px-4 md:text-xl sm:text-lg bg-opacity-80 hover:bg-opacity-100 ' +
-                                    'hover:font-bold py-2 min-w-[130px] min-h-[60px] bg-[#f7b809] rounded-2xl' }
-                                    onClick={ () => {
-
-                                    }}
+                                    'hover:font-bold py-2 min-w-[130px] min-h-[60px] bg-[#f7b809] rounded-2xl ' +
+                                        (!isValid ? 'cursor-not-allowed' : '') }
                                 >
                                     Entrar
                                 </button>
