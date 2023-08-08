@@ -56,16 +56,15 @@ export default function Page() {
                 console.log('El usuario', data.user.userName, 'se ha unido con la imagen', data.user.userImagePath);
             });
 
-            // Websocket event reporting that a new post was added *****************************************************
-            socket.on('post-added', (data: { post: PostProps }) => {
-                const addedPost: PostProps = {
-                    author: { userName: data.post.author.userName, userImagePath: data.post.author.userImagePath },
-                    topic: data.post.topic,
-                    content: data.post.content
-                };
+            // Websocket event reporting that a new post was added
+            socket.on('post-added', (data: { posts: PostProps[] }) => {
+                // Updating the posts of the current room
+                setPosts(data.posts);
+            });
 
-                // Adding the new post into the existen posts in the current room
-                setPosts(existentPosts => [ ...existentPosts, addedPost ]);
+            socket.on('post-deleted', (data: { posts: PostProps[] }) => {
+                // Updating the posts of the current room
+                setPosts(data.posts);
             });
         },
         []
@@ -76,9 +75,9 @@ export default function Page() {
         socket.emit(
             'join-padlet',
             data,
-            () => {
+            (data: { posts: PostProps[] }) => {
                 // Getting the existen posts in the current room
-                setPosts(existentPosts => [ ...existentPosts ]);
+                setPosts(data.posts);
             }
         );
     };
@@ -86,18 +85,33 @@ export default function Page() {
     // ==========   METHOD FOR ADDING A POST IN A PADLET   ==========
     const addPost = (data: PostForm) => {
         const addedPost: PostProps = {
+            postId: Math.random().toString(36).substring(4),
             author: { userName: userName, userImagePath: userImagePath },
             topic: data.topic,
-            content: data.content
+            content: data.content,
+            likes: 0,
+            creationDate: new Date(),
+            onDelete: () => undefined
         };
 
         socket.emit(
             'add-post',
             { padletId: padletId, post: addedPost },
-            () => {
+            (data: { posts: PostProps[] }) => {
                 // Adding the new post into the existen posts in the current room
-                setPosts(existentPosts => [ ...existentPosts, addedPost ]);
-                console.log('POSTS:', posts);
+                setPosts(data.posts);
+            }
+        );
+    };
+
+    // ==========   METHOD FOR DELETING A POST IN A PADLET   ==========
+    const deletePost = (postId: string) => {
+        socket.emit(
+            'delete-post',
+            { padletId: padletId, postId: postId },
+            (data: { posts: PostProps[] }) => {
+                // Deleting the post in the current padlet
+                setPosts(data.posts);
             }
         );
     };
@@ -122,9 +136,13 @@ export default function Page() {
                                     posts.map((postData, index) =>
                                         <Post
                                             key={ index }
+                                            postId={ postData.postId }
                                             author={ postData.author }
                                             topic={ postData.topic }
                                             content={ postData.content }
+                                            likes={ postData.likes }
+                                            creationDate={ postData.creationDate }
+                                            onDelete={ () => { deletePost(postData.postId) } }
                                         />
                                     )
                                 }

@@ -1,7 +1,7 @@
-import { ConnectedSocket, MessageBody, SubscribeMessage, WebSocketGateway } from "@nestjs/websockets";
-import { Socket } from 'socket.io';
-import { UserProps } from "../types/userProps";
-import { PostProps } from "../types/postProps";
+import {ConnectedSocket, MessageBody, SubscribeMessage, WebSocketGateway} from "@nestjs/websockets";
+import {Socket} from 'socket.io';
+import {UserProps} from "../types/userProps";
+import {PostProps} from "../types/postProps";
 
 @WebSocketGateway(
     11220,  // websocket server listening port
@@ -13,6 +13,8 @@ import { PostProps } from "../types/postProps";
 )
 
 export class EventsGateway {
+    private padlets: Record<string, { posts: PostProps[] }> = {};
+
     // ==========   METHOD TO JOIN USERS TO A PADLET   ==========
     @SubscribeMessage('join-padlet')   // method name to receive events
     joinPadlet(
@@ -30,7 +32,11 @@ export class EventsGateway {
             { user }  // object that will be sent
         );
 
-        return { message: 'Un usuario se ha conectado a la sala ' + padletId }; // Callback del método
+        if (!this.padlets[padletId]) {  // create a new padlet to save posts
+            this.padlets[padletId] = { posts: [] };
+        }
+
+        return this.padlets[padletId]; // method callback that is return to the emitted client
     }
 
     // ==========   METHOD TO ADD A POST IN A PADLET   ==========
@@ -43,11 +49,33 @@ export class EventsGateway {
     ) {
         const { padletId, post } = message;
 
+        this.padlets[padletId].posts.push(post);
+
         socket.broadcast.to(padletId).emit(
             'post-added',
-            { post }
+            this.padlets[padletId]
         );
 
-        return { message: 'Un nuevo post fue añadido en la sala ' + padletId };
+        return this.padlets[padletId];
+    }
+
+    // ==========   METHOD TO DELETE A POST FROM A PADLET   ==========
+    @SubscribeMessage('delete-post')
+    deletePost(
+        @MessageBody()
+            message: { padletId: string, postId: string },
+        @ConnectedSocket()
+            socket: Socket
+    ) {
+        const { padletId, postId } = message;
+
+        this.padlets[padletId].posts = this.padlets[padletId].posts.filter(post => post.postId !== postId);
+
+        socket.broadcast.to(padletId).emit(
+            'post-deleted',
+            this.padlets[padletId]
+        );
+
+        return this.padlets[padletId];
     }
 }

@@ -7,30 +7,15 @@ const oricons = localFont({ src: '../../fonts/oricons.woff2' });
 export default function Post(
     postProps: PostProps
 ) {
-    const { author, topic, content } = postProps;
+    const { author, topic, content, likes, creationDate, onDelete } = postProps;
     const { userName, userImagePath } = author;
 
-    const [ numberOfLikes, setNumberOfLikes ] = useState(0);
-    const [ activeUserLike, setActiveUserLike ] = useState(false);
+    const [ numberOfLikes, setNumberOfLikes ] = useState(likes);
     const [ time, setTime ] = useState('1m');   // ****************** RECEIVE CHANGE TIME ******************************
 
     const postStyle = {
         height: 'min-content'
     };
-
-    const changeNumberOfLikes = () => {
-        // When the active user has not given like
-        if (!activeUserLike) {
-            setNumberOfLikes(numberOfLikes + 1);
-            setActiveUserLike(true);
-            // ***************************************** SEND LIKE EVENT ***********************************************
-        }
-
-        // When the active user has given like
-        setNumberOfLikes(numberOfLikes - 1);
-        setActiveUserLike(false);
-        // ***************************************** SEND DISLIKE EVENT ************************************************
-    }
 
     return (
         <>
@@ -49,6 +34,7 @@ export default function Post(
                                         'text-black text-opacity-0 group-hover:text-opacity-50 font-semibold' }>
                                     <span
                                         className={ 'hover:text-black' }
+                                        onClick={ onDelete }
                                     >
                                         Eliminar
                                     </span>
@@ -124,7 +110,6 @@ export default function Post(
                     className={ 'flex flex-row justify-between flex-1 pl-3 pb-3 pr-3 pt-2' }
                     onClick={e => {
                         e.preventDefault();
-                        changeNumberOfLikes();
                     }}
                 >
                     <div className={ 'flex items-end cursor-pointer' }>
