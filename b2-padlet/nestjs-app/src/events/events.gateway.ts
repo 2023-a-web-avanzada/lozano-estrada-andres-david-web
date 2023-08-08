@@ -80,7 +80,6 @@ export class EventsGateway {
     }
 
     // ==========   METHOD FOR HANDLING LIKES OF A POST   ==========
-    // ==========   METHOD TO DELETE A POST FROM A PADLET   ==========
     @SubscribeMessage('update-post-likes')
     updatePostLikes(
         @MessageBody()

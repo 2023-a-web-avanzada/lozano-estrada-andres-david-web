@@ -81,7 +81,7 @@ export default function Page() {
             socket.on('connect', () => { setConnectionAllowed(true) });
             socket.on('disconnect', () => { setConnectionAllowed(false) });
 
-            // Websocket event reporting that a user has entered the room **********************************************
+            // Websocket event reporting that a user has entered the room
             socket.on('user-admitted', (data: { user: UserProps }) => {
                 console.log('El usuario', data.user.userName, 'se ha unido con la imagen', data.user.userImagePath);
             });

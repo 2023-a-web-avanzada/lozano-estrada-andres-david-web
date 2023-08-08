@@ -42,7 +42,7 @@ export default function Header(
 
                         {/* AUTHORS */}
                         {
-                            authors !== undefined ?
+                            authors !== undefined && authors.length > 1 ?
                                 <div className={ 'ml-[6.5px] align-middle text-xs text-gray-600 hover:text-gray-800 ' +
                                     'hover:focus-visible:text-gray-600 -mt-0.5 focus-ring:light ' +
                                     alps.className }>
