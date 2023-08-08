@@ -1,5 +1,5 @@
 import { PostProps } from "@/app/padlet/types/postProps";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import localFont from "next/font/local";
 
 const oricons = localFont({ src: '../../fonts/oricons.woff2' });
@@ -7,11 +7,32 @@ const oricons = localFont({ src: '../../fonts/oricons.woff2' });
 export default function Post(
     postProps: PostProps
 ) {
-    const { author, topic, content, likes, creationDate, onDelete } = postProps;
+    const { author, topic, content, usersWhoLiked, creationDate, onDelete, onLike } = postProps;
     const { userName, userImagePath } = author;
 
-    const [ numberOfLikes, setNumberOfLikes ] = useState(likes);
-    const [ time, setTime ] = useState('1m');   // ****************** RECEIVE CHANGE TIME ******************************
+    const [ time, setTime ] = useState('1m');
+
+    useEffect(() => {
+        // Formatting the time passed
+        const currentDate = new Date();
+        const initialDate = new Date(creationDate);
+        const difference = currentDate.getTime() - initialDate.getTime();
+
+        const seconds = Math.floor(difference / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        if (days > 0) {
+            setTime(`${days}d`);
+        } else if (hours > 0) {
+            setTime(`${hours}h`);
+        } else if (minutes > 0) {
+            setTime(`${minutes}m`);
+        } else if (minutes === 0) {
+            setTime('1m');
+        }
+    }, []);
 
     const postStyle = {
         height: 'min-content'
@@ -110,21 +131,23 @@ export default function Post(
                     className={ 'flex flex-row justify-between flex-1 pl-3 pb-3 pr-3 pt-2' }
                     onClick={e => {
                         e.preventDefault();
+                        onLike();
                     }}
                 >
-                    <div className={ 'flex items-end cursor-pointer' }>
+                    <div className={ 'flex items-end cursor-pointer ' +
+                        (usersWhoLiked.length > 0 ? 'text-[#9367e3]' : 'text-[#0000008a]') }
+                    >
                         <i
                             className={ 'font-normal normal-nums text-lg not-italic ' + oricons.className }
-                            style={{ color: 'rgba(0, 0, 0, 0.54)', height: '18px', maxWidth: '18px', lineHeight: '1' }}
+                            style={{ height: '18px', maxWidth: '18px', lineHeight: '1' }}
                         >
-                            heart_outline
+                            {
+                                usersWhoLiked.length > 0 ? 'heart_filled' : 'heart_outline'
+                            }
                         </i>
 
-                        <span
-                            className={ 'ms-0.5 text-xs' }
-                            style={{ color: 'rgba(0, 0, 0, 0.54)' }}
-                        >
-                            { numberOfLikes }
+                        <span className={ 'ms-0.5 text-xs' }>
+                            { usersWhoLiked.length }
                         </span>
                     </div>
                 </div>

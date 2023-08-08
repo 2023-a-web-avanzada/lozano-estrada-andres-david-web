@@ -5,7 +5,8 @@ export type PostProps = {
     author: UserProps,
     topic?: string,
     content?: string,
-    likes: number,
+    usersWhoLiked: string[],
     creationDate: Date,
-    onDelete: () => undefined
+    onDelete: () => undefined,
+    onLike: () => undefined
 }

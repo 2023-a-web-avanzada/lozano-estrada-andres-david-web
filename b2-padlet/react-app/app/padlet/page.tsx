@@ -33,7 +33,37 @@ export default function Page() {
     // Use state posts data
     const [ connectionAllowed, setConnectionAllowed ] = useState(true);
     const [ shownPanel, setShownPanel ] = useState(false);
+    const [ lastEditionTime, setLastEditionTime ] = useState('1m');
     const [ posts, setPosts ] = useState([] as PostProps[]);
+
+    useEffect(() => {
+        // Getting the last edition date
+        const currentDate = new Date();
+        const lastPostsDate = posts.reduce((lastDate, post) => {
+            const postDate = new Date(post.creationDate);
+            const maxDate = new Date(lastDate);
+
+            return postDate.getTime() > maxDate.getTime() ? post.creationDate : lastDate;
+        }, new Date(0));
+
+        const initialDate = new Date(lastPostsDate);
+        const difference = currentDate.getTime() - initialDate.getTime();
+
+        const seconds = Math.floor(difference / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        if (days > 0) {
+            setLastEditionTime(`${days}d`);
+        } else if (hours > 0) {
+            setLastEditionTime(`${hours}h`);
+        } else if (minutes > 0) {
+            setLastEditionTime(`${minutes}m`);
+        } else if (minutes === 0) {
+            setLastEditionTime('1m');
+        }
+    }, [ posts ]);
 
     useEffect(() => {
             // Entering into the room when a connection is established
@@ -66,6 +96,11 @@ export default function Page() {
                 // Updating the posts of the current room
                 setPosts(data.posts);
             });
+
+            socket.on('post-likes-updated', (data: { posts: PostProps[] }) => {
+                // Updating the posts of the current room
+                setPosts(data.posts);
+            });
         },
         []
     );
@@ -89,9 +124,10 @@ export default function Page() {
             author: { userName: userName, userImagePath: userImagePath },
             topic: data.topic,
             content: data.content,
-            likes: 0,
+            usersWhoLiked: [],
             creationDate: new Date(),
-            onDelete: () => undefined
+            onDelete: () => undefined,
+            onLike: () => undefined
         };
 
         socket.emit(
@@ -116,6 +152,31 @@ export default function Page() {
         );
     };
 
+    // ==========   METHOD FOR HANDLING LIKES OF A POST   ==========
+    const handleLikePost = (postId: string, usersWhoLiked: string[]) => {
+        let filteredUsersWhoLiked: string[];
+
+        // Dislike
+        if (usersWhoLiked.includes(userName)) {
+            filteredUsersWhoLiked = usersWhoLiked.filter(userWhoLiked => userWhoLiked !== userName);
+        }
+
+        // Like
+        else {
+            filteredUsersWhoLiked = usersWhoLiked;
+            filteredUsersWhoLiked.push(userName);
+        }
+
+        socket.emit(
+            'update-post-likes',
+            { padletId: padletId, postId: postId, usersWhoLiked: filteredUsersWhoLiked },
+            (data: { posts: PostProps[] }) => {
+                // Updating the posts data
+                setPosts(data.posts);
+            }
+        );
+    };
+
     return (
         <>
             <div className={ 'bg-[#d0cfd6] flex md:flex-col lg:flex-row justify-end w-screen ' +
@@ -124,7 +185,7 @@ export default function Page() {
                 <div className={ 'flex flex-col grow w-full h-full overflow-y-auto' }>
                     {/* HEADER */}
                     <div className={ 'shrink-0 min-h-[99px] lg:min-h-[128px]' }>
-                        <Header user={ user as UserProps } time={ '1d' } title={ 'Padlet: ' + padletId }/>
+                        <Header user={ user as UserProps } time={ lastEditionTime } title={ 'Padlet: ' + padletId }/>
                     </div>
 
                     {/* POSTS */}
@@ -140,9 +201,10 @@ export default function Page() {
                                             author={ postData.author }
                                             topic={ postData.topic }
                                             content={ postData.content }
-                                            likes={ postData.likes }
+                                            usersWhoLiked={ postData.usersWhoLiked }
                                             creationDate={ postData.creationDate }
                                             onDelete={ () => { deletePost(postData.postId) } }
+                                            onLike={ () => { handleLikePost(postData.postId, postData.usersWhoLiked) } }
                                         />
                                     )
                                 }

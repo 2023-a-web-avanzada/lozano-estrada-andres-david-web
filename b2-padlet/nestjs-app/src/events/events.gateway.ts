@@ -78,4 +78,26 @@ export class EventsGateway {
 
         return this.padlets[padletId];
     }
+
+    // ==========   METHOD FOR HANDLING LIKES OF A POST   ==========
+    // ==========   METHOD TO DELETE A POST FROM A PADLET   ==========
+    @SubscribeMessage('update-post-likes')
+    updatePostLikes(
+        @MessageBody()
+            message: { padletId: string, postId: string, usersWhoLiked: string[] },
+        @ConnectedSocket()
+            socket: Socket
+    ) {
+        const { padletId, postId, usersWhoLiked } = message;
+
+        const updatedPost = this.padlets[padletId].posts.find(post => post.postId === postId);
+        updatedPost.usersWhoLiked = usersWhoLiked;
+
+        socket.broadcast.to(padletId).emit(
+            'post-likes-updated',
+            this.padlets[padletId]
+        );
+
+        return this.padlets[padletId];
+    }
 }
