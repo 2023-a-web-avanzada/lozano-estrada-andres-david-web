@@ -44,7 +44,7 @@ export default function Page() {
             const maxDate = new Date(lastDate);
 
             return postDate.getTime() > maxDate.getTime() ? post.creationDate : lastDate;
-        }, new Date(0));
+        }, new Date());
 
         const initialDate = new Date(lastPostsDate);
         const difference = currentDate.getTime() - initialDate.getTime();
