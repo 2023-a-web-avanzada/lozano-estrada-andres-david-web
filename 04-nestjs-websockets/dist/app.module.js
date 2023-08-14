@@ -11,11 +11,21 @@ const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const evetos_module_1 = require("./eventos/evetos.module");
+const typeorm_1 = require("@nestjs/typeorm");
 let AppModule = exports.AppModule = class AppModule {
 };
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [evetos_module_1.EventosModule],
+        imports: [
+            evetos_module_1.EventosModule,
+            typeorm_1.TypeOrmModule.forRoot({
+                type: 'sqlite',
+                database: './bdd/bdd.sqlite',
+                entities: [],
+                synchronize: true,
+                dropSchema: false
+            })
+        ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
