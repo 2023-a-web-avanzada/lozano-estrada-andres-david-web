@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common"
 import { DepartmentService } from "./department.service";
 import { DepartmentEntity } from "./department.entity";
 import { DepartmentDto } from "./dto/department.dto";
-import { DeepPartial, DeleteResult } from "typeorm";
+import { DeleteResult, UpdateResult } from "typeorm";
 
 @Controller('departments')
 export class DepartmentController {
@@ -29,10 +29,7 @@ export class DepartmentController {
 
     // http://localhost:3030/departments?id=<department-id>
     @Put(':id')
-    updateDepartment(
-        @Param('id') id: number,
-        @Body() department: DepartmentDto
-    ): Promise<(DeepPartial<DepartmentDto> & DepartmentEntity)> {
+    updateDepartment(@Param('id') id: number, @Body() department: DepartmentDto): Promise<UpdateResult> {
         return this.departmentService.updateDepartment(id, department);
     }
 

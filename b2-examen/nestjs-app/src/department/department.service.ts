@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { DepartmentEntity } from "./department.entity";
 import { InjectDataSource } from "@nestjs/typeorm";
-import { DataSource, DeepPartial, DeleteResult, FindManyOptions } from "typeorm";
+import { DataSource, DeleteResult, FindManyOptions, UpdateResult } from "typeorm";
 import { DepartmentDto } from "./dto/department.dto";
 
 @Injectable()
@@ -31,11 +31,8 @@ export class DepartmentService {
         return this.departmentRepository.save(department);
     }
 
-    updateDepartment(
-        id: number,
-        department: DepartmentDto
-    ): Promise<(DeepPartial<DepartmentDto> & DepartmentEntity)> {
-        return this.departmentRepository.save({ ...department, id });
+    updateDepartment(id: number, department: DepartmentDto): Promise<UpdateResult> {
+        return this.departmentRepository.update(id, department);
     }
 
     deleteDepartmentById(id: number): Promise<DeleteResult> {

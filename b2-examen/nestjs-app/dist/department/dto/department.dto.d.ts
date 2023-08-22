@@ -1,4 +1,4 @@
-export declare class DepartmentCreateDto {
+export declare class DepartmentDto {
     name: string;
     budget: number;
     active: boolean;

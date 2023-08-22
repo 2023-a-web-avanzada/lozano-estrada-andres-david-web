@@ -22,11 +22,24 @@ let DepartmentService = exports.DepartmentService = class DepartmentService {
         this.dataSource = dataSource;
         this.departmentRepository = this.dataSource.getRepository(department_entity_1.DepartmentEntity);
     }
-    findDepartments(options) {
+    getAllDepartments(options) {
         return this.departmentRepository.find(options);
+    }
+    getOneDepartmentById(id) {
+        return this.departmentRepository.findOne({
+            where: {
+                id: id,
+            }
+        });
     }
     createDepartment(department) {
         return this.departmentRepository.save(department);
+    }
+    updateDepartment(id, department) {
+        return this.departmentRepository.update(id, department);
+    }
+    deleteDepartmentById(id) {
+        return this.departmentRepository.delete(id);
     }
 };
 exports.DepartmentService = DepartmentService = __decorate([
