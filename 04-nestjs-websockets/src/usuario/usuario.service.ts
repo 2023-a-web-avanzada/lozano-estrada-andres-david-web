@@ -2,6 +2,8 @@ import {Injectable} from "@nestjs/common";
 import {InjectDataSource} from "@nestjs/typeorm";
 import {DataSource, DeepPartial, DeleteResult, FindManyOptions} from "typeorm";
 import {UsuarioEntity} from "./usuario.entity";
+import {UsuarioCreateDto} from "./dto/usuario-create.dto";
+import {UsuarioUpdateDto} from "./dto/usuario-update.dto";
 
 @Injectable()
 export class UsuarioService {
@@ -29,13 +31,13 @@ export class UsuarioService {
         })
     }
 
-    create(datosCrear: any) {
+    create(datosCrear: UsuarioCreateDto) {
         return this.usuarioRepository.save(datosCrear);
     }
 
     update(
-        datosActualizar: any, id: number
-    ): Promise<(DeepPartial<UsuarioEntity> & UsuarioEntity)[]> {
+        datosActualizar: UsuarioUpdateDto, id: number
+    ): Promise<(DeepPartial<UsuarioEntity> & UsuarioEntity)> {
         return this.usuarioRepository.save(
             {...datosActualizar, id}
         );
