@@ -9,8 +9,8 @@ export class EmployeeController {
     constructor(private readonly employeeService: EmployeeService) {}
 
     // http://localhost:3030/employees?department-id=<department-id>
-    @Get(':department-id')
-    getAllEmployeesByDepartmentId(@Param('department-id') departmentId: number): Promise<EmployeeEntity[]> {
+    @Get('by-department/:id')
+    getAllEmployeesByDepartmentId(@Param('id') departmentId: number): Promise<EmployeeEntity[]> {
         return this.employeeService.getAllEmployeesByDepartmentId(departmentId);
     }
 

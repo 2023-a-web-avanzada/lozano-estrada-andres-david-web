@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { Department } from "@/types/department";
 
-const url = 'http://localhost:3030/departments'
+const url = 'http://localhost:3030/departments';
 
 export default function Page(
     { params }: { params: { 'department-id': number | 'create' } }
@@ -48,7 +48,7 @@ export default function Page(
                 router.push("../departments");
             }
         } catch (error) {
-            console.log('Error while creating department: ', error);
+            console.log('Error while creating department:', error);
         }
     }
 

@@ -6,7 +6,7 @@ import axios from 'axios';
 import { Department } from "@/types/department";
 import DepartmentsTable from "@/app/components/departments-table";
 
-const url = 'http://localhost:3030/departments'
+const url = 'http://localhost:3030/departments';
 
 export default function Page() {
     const [ departments, setDepartments ] = useState([] as Department[]);

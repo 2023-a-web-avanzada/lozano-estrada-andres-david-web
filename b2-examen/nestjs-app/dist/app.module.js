@@ -14,6 +14,9 @@ const typeorm_1 = require("@nestjs/typeorm");
 const department_entity_1 = require("./department/department.entity");
 const department_controller_1 = require("./department/department.controller");
 const department_service_1 = require("./department/department.service");
+const employee_entity_1 = require("./employee/employee.entity");
+const employee_controller_1 = require("./employee/employee.controller");
+const employee_service_1 = require("./employee/employee.service");
 let AppModule = exports.AppModule = class AppModule {
 };
 exports.AppModule = AppModule = __decorate([
@@ -23,14 +26,14 @@ exports.AppModule = AppModule = __decorate([
                 type: 'sqlite',
                 database: './database/database.sqlite',
                 entities: [
-                    department_entity_1.DepartmentEntity,
+                    department_entity_1.DepartmentEntity, employee_entity_1.EmployeeEntity,
                 ],
                 synchronize: true,
                 dropSchema: false,
             }),
         ],
-        controllers: [app_controller_1.AppController, department_controller_1.DepartmentController],
-        providers: [app_service_1.AppService, department_service_1.DepartmentService],
+        controllers: [app_controller_1.AppController, department_controller_1.DepartmentController, employee_controller_1.EmployeeController],
+        providers: [app_service_1.AppService, department_service_1.DepartmentService, employee_service_1.EmployeeService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
